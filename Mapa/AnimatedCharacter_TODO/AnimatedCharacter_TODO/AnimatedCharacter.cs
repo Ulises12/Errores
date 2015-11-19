@@ -31,15 +31,22 @@ namespace AnimatedCharacter_TODO
         public virtual Rectangle Pos
         {
             set
-            {             
-                standLeft.Pos = value;
-                standRight.Pos = value;
-                standUp.Pos = value;
-                standDown.Pos = value;
-                walkUp.Pos = value;
-                walkLeft.Pos = value;
-                walkRigh.Pos = value;
-                walkDown.Pos = value;
+            {
+                try
+                {
+                    standLeft.Pos = value;
+                    standRight.Pos = value;
+                    standUp.Pos = value;
+                    standDown.Pos = value;
+                    walkUp.Pos = value;
+                    walkLeft.Pos = value;
+                    walkRigh.Pos = value;
+                    walkDown.Pos = value;
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine("Valores de posicion no encontrados");
+                }
                //PARA IMAGENES EN COLISIONES: collisi.Pos = value;
             }
             get { return standUp.Pos; }
@@ -229,56 +236,55 @@ namespace AnimatedCharacter_TODO
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            switch (direccion)
+            try
             {
-                case SideDirection.Move_Up:
-                    {
-                        walkUp.Draw(spriteBatch);
-                        break;
-                    }
-                case SideDirection.Move_Down:
-                    {
-                        walkDown.Draw(spriteBatch);
-                        break;
-                    }
-                case SideDirection.Move_Left:
-                    {
-                        walkLeft.Draw(spriteBatch);
-                        break;
-                    }
-                case SideDirection.Move_Right:
-                    {
-                        walkRigh.Draw(spriteBatch);
-                        break;
-                    }
-                case SideDirection.Stand_Up:
-                    {
-                        standUp.Draw(spriteBatch);
-                        break;
-                    }
-                case SideDirection.Stand_Down:
-                    {
-                        standDown.Draw(spriteBatch);
-                        break;
-                    }
-                case SideDirection.Stand_Left:
-                    {
-                        standLeft.Draw(spriteBatch);
-                        break;
-                    }
-                case SideDirection.Stand_Right:
-                    {
-                        standRight.Draw(spriteBatch);
-                        break;
-                    }
-              /* 
-               * PARA IMAGENES EN COLISIONES
-               * case SideDirection.Collision:
-                    {
-                        collisi.Draw(spriteBatch);
-                        
-                        break;
-                    }*/ 
+                switch (direccion)
+                {
+                    case SideDirection.Move_Up:
+                        {
+                            walkUp.Draw(spriteBatch);
+                            break;
+                        }
+                    case SideDirection.Move_Down:
+                        {
+                            walkDown.Draw(spriteBatch);
+                            break;
+                        }
+                    case SideDirection.Move_Left:
+                        {
+                            walkLeft.Draw(spriteBatch);
+                            break;
+                        }
+                    case SideDirection.Move_Right:
+                        {
+                            walkRigh.Draw(spriteBatch);
+                            break;
+                        }
+                    case SideDirection.Stand_Up:
+                        {
+                            standUp.Draw(spriteBatch);
+                            break;
+                        }
+                    case SideDirection.Stand_Down:
+                        {
+                            standDown.Draw(spriteBatch);
+                            break;
+                        }
+                    case SideDirection.Stand_Left:
+                        {
+                            standLeft.Draw(spriteBatch);
+                            break;
+                        }
+                    case SideDirection.Stand_Right:
+                        {
+                            standRight.Draw(spriteBatch);
+                            break;
+                        }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine("Error");
             }
         }
     }
