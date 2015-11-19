@@ -21,9 +21,18 @@ namespace AnimatedCharacter_TODO
         // metodo de inicializacion
         public void LoadContent(ContentManager Content,String dirName, String name)
         {
-            image = Content.Load<Texture2D>(dirName + "/" + name);
-            // Set the size of the displayed image the same size of the texture
-            pos = new Rectangle(0, 0, image.Width, image.Height);
+            try
+            {
+                image = Content.Load<Texture2D>(dirName + "/" + name);
+                // Set the size of the displayed image the same size of the texture
+                pos = new Rectangle(0, 0, image.Width, image.Height);
+            }
+            catch (Exception e)
+            {
+                image = null;
+                Console.WriteLine("Ocurrio un error al cargar la imagen ", e);
+            }
+           
         }
         public bool Colision(Rectangle rect)
         {

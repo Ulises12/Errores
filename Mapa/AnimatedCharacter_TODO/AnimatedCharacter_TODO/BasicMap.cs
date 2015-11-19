@@ -64,11 +64,16 @@ namespace AnimatedCharacter_TODO
             yTex = characterSize.Y + characterSize.Height/2;
             col4 = OverData[(yTex * transitable.Width) + xTex];
 
+           /* if (col1.A == 0 || col2.A == 0 || col3.A == 0 || col4.A == 0)
+            {
+                throw new System.ArgumentException("Alguno de los puntos no es tranparente ");
+            }*/
 
-            if (col1.A != 0 && col2.A != 0 && col3.A != 0 && col4.A != 0)
-                return true;
-            else
-                return false;
+                if (col1.A != 0 && col2.A != 0 && col3.A != 0 && col4.A != 0)
+                    return true;
+                else
+                    return false;
+         
 
         }
         public void DrawUnder(SpriteBatch spriteBatch)

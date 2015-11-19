@@ -47,9 +47,18 @@ namespace AnimatedCharacter_TODO
             // Load all the texture images
             for (int k = 1; k <= frameCount; k++)
             {
-                Texture2D tex;
-                tex = Content.Load<Texture2D>(nameDir + "/" + nameFile + k.ToString("00"));
-                textureList.Add(tex);
+                try
+                {
+                    Texture2D tex;
+                    tex = Content.Load<Texture2D>(nameDir + "/" + nameFile + k.ToString("00"));
+                    textureList.Add(tex);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Ocurrio un error al cargar las imagenes ", e);
+
+                }
+                
             }
 
             // we will assume all images have same dimensions (width/height)
