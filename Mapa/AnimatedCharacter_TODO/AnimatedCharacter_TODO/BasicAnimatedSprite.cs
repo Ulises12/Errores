@@ -109,6 +109,14 @@ namespace AnimatedCharacter_TODO
 
             if ( multipleFiles )
             {
+                //Error de no cargar ninguna imagen 
+           
+                if (textureList.Count <=0)
+                {
+                    throw new System.ArgumentException("No se ha cargado ninguna textura de personaje");
+                }
+
+
                 if (currentFrame < textureList.Count)
                 {
                     switch (c)
